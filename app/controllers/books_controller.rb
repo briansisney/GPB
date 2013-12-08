@@ -33,8 +33,9 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
-		#todo: itterate pts
+	  @buyer= current_user	
 	  @book = Book.find(params[:id])
+	  @buyer.points -= @book.points
 	  @book.destroy
 	  redirect_to root_path
 	end
