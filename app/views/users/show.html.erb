@@ -1,16 +1,19 @@
 <div class="row">
-	<div class="large-4 columns">
-		<img src="http://placehold.it/600x600">
+	<div style= "padding:0px" class="large-3 columns">
+		<img src=<%= current_user.image%> height="215" width="215">
 	</div>
-	<div class="large-8 columns">
-		<h3><%= "#{@user[:first_name]} #{@user[:last_name]}"%></h3>
-		<p><%= @user.description %></p>
-		<a href="#" class="button" data-dropdown="drop"><%= @user.first_name%>'s books &raquo;</a>
-		<ul id="drop" class="[large content] f-dropdown" data-dropdown-content>
-		  <li><a href="#">This is a link</a></li>
-		  <li><a href="#">This is another</a></li>
-		  <li><a href="#">Yet another</a></li>
-		</ul>		
-		<h4><%= @user.points%> Points</h4>
+	<div class="large-9 columns">
+		<h3><u><%= "#{current_user[:first_name]} #{current_user[:last_name]}"%></u></h3>
+		<%if current_user.description %> 
+			<p><% current_user.description %></p>
+	 	<%else %>
+	 		<p><%= current_user.first_name %> is lazy and hasn't added a description</p>
+	 	<% end %>
+		<h4><u>Points</u></h4>
+			<% if current_user.points.nil? %>
+				<p><%= current_user.first_name%> sucks and has no points!</p>
+			<% else %>
+				<p><% current_user.points %></p>
+			<% end %>
 	</div>
 </div>
