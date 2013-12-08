@@ -1,30 +1,28 @@
 
 <div class="row">
-	<h1> All the Books</h1>
-
-	<table>
-	  <thead>
-	    <tr>
-	      <th>Book Title</th>
-	      <th></th>
-	      <th></th>
-	      <th></th>
-	      <th></th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <% @books.each do |book| %>
-	      <tr>
-	        <td><%= book.title %></td>
-	        <td><%= book.author %></td>
-	        <td><img src="<%= book.img_url %>" class = "book_img"></td>
-	        <td><%= link_to 'Show', book %></td>
-	        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-	        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	      </tr>
-	    <% end %>
-	  </tbody>
-	</table>
-	<%= link_to('Create Book', new_book_path) %>
+	<div class="large-8 columns">
+		<h1>Our huge Library</h1>
+	</div>
+	
+	<div class="large-4 columns">
+		<%= link_to 'Create Book', new_book_path, class: "button" %>
+	</div>
 </div>
+
+		<div class="row">
+	    <% @books.each do |book| %>
+				<div class="large-4 columns left">
+	        <img src="<%= book.img_url %>" class = "book_img">
+		        <table>
+		        	<tr>
+				        <td><%= link_to book.title, book %></td>
+				        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+				        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		      		</tr>
+		      	</table>
+		     		</div>
+		     
+		   <% end %>
+</div>
+
 
