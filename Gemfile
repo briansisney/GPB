@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'foundation-rails'
+
 gem 'omniauth-facebook'
 
 gem 'figaro'

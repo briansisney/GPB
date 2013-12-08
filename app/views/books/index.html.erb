@@ -1,12 +1,10 @@
 <h1> All the Books <h1>
 
-  <body>
     <p><% @books.each do |book| %></p>
         <div>
         <p><%= book.title %></p>
         <img src= <%=book.img_url%>/>
         <div>
     <% end %>
-  </body>
-</table>
+
 <br />

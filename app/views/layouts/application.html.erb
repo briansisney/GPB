@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>GPB</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div id="user_nav">
-	  <% if current_user %>
-	    Signed in as <strong><%= current_user.first_name %></strong>!
-	    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-	  <% else %>
-	    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-	  <% end %>
-	</div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div id="user_nav">
+      <% if current_user %>
+        Signed in as <strong><%= current_user.first_name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+      <% end %>
+    </div>
+
+
+
+    <div class="row">
+      <div><%= link_to "User Profile", user_path(current_user.id), class: "large-3 columns button" %></div>
+      <div class="large-3 columns button">myBooks</div>
+      <div><%= link_to "How It Works", user_path(current_user.id), class: "large-3 columns button" %></div>
+      <div class="large-3 columns button"><a href="#"></a>Profile</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
