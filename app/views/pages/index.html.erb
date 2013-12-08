@@ -1,1 +1,17 @@
-<p>Sign in through facebook or no access for you!</p>
+
+<div class="row">
+	<h2>Register through facebook:</h2>
+	
+
+	<%= image_tag 'active_404@2x.png'%>
+	
+
+	<div id="user_nav">
+    <% if current_user %>
+      Signed in as <strong><%= current_user.first_name %></strong>!
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+      <%= link_to image_tag('active_404@2x.png'), "/auth/facebook", id: "sign_in" %>
+    <% end %>
+  </div>
+</div>  
