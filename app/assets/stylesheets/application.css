@@ -14,5 +14,12 @@
  *= require_tree .
  */
  .center{
- 	text-align:center
+ 	text-align:center;
+ }
+
+ .righty{
+ 	text-align:right;
+ }
+ footer{
+ 	border-top: 1px solid #158cba;
  }
