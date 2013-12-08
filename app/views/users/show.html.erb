@@ -5,7 +5,7 @@
 	<div class="large-9 columns">
 		<h3><u><%= "#{current_user[:first_name]} #{current_user[:last_name]}"%></u></h3>
 		<%if current_user.description %> 
-			<p><% current_user.description %></p>
+			<p><%= current_user.description %></p>
 	 	<%else %>
 	 		<p><%= current_user.first_name %> is lazy and hasn't added a description</p>
 	 	<% end %>
@@ -15,5 +15,6 @@
 			<% else %>
 				<p><% current_user.points %></p>
 			<% end %>
+		<%= link_to "Edit Description", edit_user_path(current_user.id) %>
 	</div>
 </div>
