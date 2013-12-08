@@ -1,17 +1,17 @@
 
 <div class="row">
-	<h2>Register through facebook:</h2>
-	
-
-	<%= image_tag 'active_404@2x.png'%>
-	
-
-	<div id="user_nav">
-    <% if current_user %>
-      Signed in as <strong><%= current_user.first_name %></strong>!
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
-    <% else %>
-      <%= link_to image_tag('active_404@2x.png'), "/auth/facebook", id: "sign_in" %>
-    <% end %>
+	<div class="twelve columns">
+		<h2 class="center">Welcome to Get Paperback!</h2>
+		<%= image_tag 'Reading-Books.jpg'%>
+		<br/>
+			<br/>
+			<br/>
+		<div class="center" >
+	    <% if current_user %>
+	      <%= link_to "", signout_path, id: "sign_out" %>
+	    <% else %>
+	      <%= link_to image_tag('active_404@2x.png'), "/auth/facebook", id: "sign_in" %>
+	    <% end %>
+	  </div>
   </div>
 </div>  
