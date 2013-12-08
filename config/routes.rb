@@ -12,4 +12,5 @@ GPB::Application.routes.draw do
 
   get '/how_it_works' => 'pages#how_it_works', as: 'how_it_works'
   get '/index' => 'pages#index', as: 'landing'
+  get '/users/:id/my_books' => 'users#my_books', as: 'my_books'
 end
