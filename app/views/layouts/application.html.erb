@@ -17,7 +17,7 @@
         <% if current_user.nil? %>
           <%= link_to "Sign In", root_path, class: "large-3 columns button" %>
         <%else %>
-          <%= link_to "User Profile", user_path(current_user.id), class: "large-3 columns button" %>
+          <%= link_to current_user.first_name, user_path(current_user.id), class: "large-3 columns button" %>
         <%end%> 
       </div>
       <div>
@@ -34,16 +34,7 @@
         <%= link_to "All Books", books_path, class: "large-3 columns button" %>
       </div>
     </div>
-    <div class="row">
-      <div id="user_nav">
-        <% if current_user %>
-          Signed in as <strong><%= current_user.first_name %></strong>!
-          <%= link_to "Sign out", signout_path, id: "sign_out" %>
-        <% else %>
-          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-        <% end %>
-      </div>
-    </div>
+    
 
 
 
@@ -61,6 +52,24 @@
 
 
     <%= yield %>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+      <!-- <div class="large-10 columns">
+      </div> -->
+      <div class="large-4 columns">
+        <% if current_user %>
+          Signed in as <strong><%= "#{current_user.first_name} #{current_user.last_name}" %></strong>
+          <br/>
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+          <%= link_to "", "/auth/facebook", id: "sign_in" %>
+        <% end %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
