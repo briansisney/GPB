@@ -6,22 +6,20 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>First</th>
+      <th>Last</th>
       <th>Email</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.full_name %></td>
-      <td><%= user.email_address %></td>
-      <td><%= link_to "Videos", user_videos_path(user.id) %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<br />
-<%= link_to 'Create User', new_user_path %>
 <br />
