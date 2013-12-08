@@ -1,15 +1,17 @@
-<%= form_for @book do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br />
 
-  <%= f.label :description %>
-  <%= f.text_field :description %><br />
+<div class="row">
+	<%= form_for @book do |f| %>
+	  <%= f.label :title %>
+	  <%= f.text_field :title %><br />
 
-  <%= f.label :img_url %>
-  <%= f.text_field :img_url %><br />
+	  <%= f.label :description %>
+	  <%= f.text_field :description %><br />
 
-  <%= f.label :points %>
-  <%= f.text_field :points %><br />
+	  <%= f.label :img_url %>
+	  <%= f.text_field :img_url %><br />
 
-<% end %>
+		<%= f.submit %>
+	<% end %>
+	
+</div>
 
