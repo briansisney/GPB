@@ -9,4 +9,7 @@ GPB::Application.routes.draw do
   resources :books
 
   resources :users
+
+  get '/how_it_works' => 'pages#how_it_works', as: 'how_it_works'
+  get '/index' => 'pages#index', as: 'splash'
 end
