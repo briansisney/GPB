@@ -1,1 +1,32 @@
-my_books.html.erb
+
+
+<div class="row">
+	<h1> Your Books </h1>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Book Title</th>
+	      <th>Author</th>
+	      <th>Description</th>
+	      <th></th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% User.find(@user).books.each do |book| %>
+	      <tr>
+	        <td><%= book.title %></td>
+	        <td><%= book.author %></td>
+	        <td><%= book.description %></td>
+	        <td><img src="<%= book.img_url %>" class = "book_img"></td>
+	        <td><%= link_to 'Show', book %></td>
+	        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+	        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	<%= link_to('Create Book', new_book_path) %>
+</div>
+
