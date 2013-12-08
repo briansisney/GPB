@@ -1,11 +1,12 @@
-eclass BooksController < ApplicationController
+class BooksController < ApplicationController
 	def show
 	  @book = Book.find(params[:id])
 	end
 
 	def index
-	  @user = User.find(params[:user_id]) if params[:user_id]
-	  @books = @user ? @user.books.all : Book.all
+	  # @user = User.find(params[:user_id]) if params[:user_id]
+	  # @books = @user ? @user.books.all : Book.all
+	  @books = Book.all
 	end
 
 	def new
@@ -43,6 +44,6 @@ eclass BooksController < ApplicationController
 	private
 
 	def book_params
-	  # params.require(:book).permit(:title, :description, :youtube_id)
+	  params.require(:book).permit(:title)
 	end
 end
