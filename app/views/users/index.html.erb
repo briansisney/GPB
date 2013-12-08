@@ -1,1 +1,27 @@
-index.html.erb
+<h1>All the users!</h1>
+<ul>
+
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.full_name %></td>
+      <td><%= user.email_address %></td>
+      <td><%= link_to "Videos", user_videos_path(user.id) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br />
+<%= link_to 'Create User', new_user_path %>
+<br />
