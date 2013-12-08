@@ -1,11 +1,12 @@
-eclass BooksController < ApplicationController
+class BooksController < ApplicationController
 	def show
 	  @book = Book.find(params[:id])
 	end
 
 	def index
-	  @user = User.find(params[:user_id]) if params[:user_id]
-	  @books = @user ? @user.books.all : Book.all
+	  # @user = User.find(params[:user_id]) if params[:user_id]
+	  # @books = @user ? @user.books.all : Book.all
+	  @books = Book.all
 	end
 
 	def new
@@ -15,6 +16,7 @@ eclass BooksController < ApplicationController
 	def create
 	  @book = Book.new(book_params)
 	  @book.user_id = current_user.id
+	  @book.points = 10
 	  if @book.save
 	    redirect_to @book
 	  else
@@ -29,7 +31,7 @@ eclass BooksController < ApplicationController
 	def update
 	  @book = Book.find(params[:id])
 	  @book.update(book_params)
-	  redirect_to root_path
+	  redirect_to book_path(@book.id)
 	end
 
 	def destroy
@@ -43,6 +45,6 @@ eclass BooksController < ApplicationController
 	private
 
 	def book_params
-	  # params.require(:book).permit(:title, :description, :youtube_id)
+	  params.require(:book).permit(:title, :description, :img_url, :points)
 	end
 end
