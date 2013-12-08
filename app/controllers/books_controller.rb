@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+eclass BooksController < ApplicationController
 	def show
 	  @book = Book.find(params[:id])
 	end

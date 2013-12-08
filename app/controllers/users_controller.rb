@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # def myBooks
+  # @books= current_user.   
+
+  # end  
+
   private
 
   def user_params
