@@ -3,17 +3,18 @@
 		<img src=<%= current_user.image%> height="215" width="215">
 	</div>
 	<div class="large-9 columns">
-		<h3><u><%= "#{current_user[:first_name]} #{current_user[:last_name]}"%></u></h3>
+		<h3><%= "#{current_user[:first_name]} #{current_user[:last_name]}"%></h3>
 		<%if current_user.description %> 
-			<p><% current_user.description %></p>
+			<p><%= current_user.description %></p>
 	 	<%else %>
 	 		<p><%= current_user.first_name %> is lazy and hasn't added a description</p>
 	 	<% end %>
-		<h4><u>Points</u></h4>
+		<h4>Points</h4>
 			<% if current_user.points.nil? %>
 				<p><%= current_user.first_name%> sucks and has no points!</p>
 			<% else %>
-				<p><% current_user.points %></p>
+				<p><%= current_user.points %></p>
 			<% end %>
+		<%= link_to "Edit Description", edit_user_path(current_user.id) %>
 	</div>
 </div>

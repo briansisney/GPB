@@ -1,25 +1,27 @@
-<h1>All the users!</h1>
-<ul>
+<div class="row">
+  <h1>All the users!</h1>
+  <ul>
 
-</ul>
+  </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>First</th>
-      <th>Last</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.first_name %></td>
-      <td><%= user.last_name %></td>
-      <td><%= user.email %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>First</th>
+        <th>Last</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-<br />
+  <br />
+</div>

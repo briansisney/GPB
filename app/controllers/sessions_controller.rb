@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
-    user.points= 0 if user.points= nil
     session[:user_id]=user.id
+    user.points = 0 if user.points == nil
     redirect_to root_url
   end
 

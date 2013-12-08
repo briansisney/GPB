@@ -17,6 +17,11 @@ class BooksController < ApplicationController
 	  @book = Book.new(book_params)
 	  @book.user_id = current_user.id
 	  @book.points = 10
+	  if current_user.points.nil?
+	  	current_user.points = 10
+	  else
+	  	current_user.points += 10
+	  end
 	  if @book.save
 	    redirect_to @book
 	  else
@@ -45,6 +50,6 @@ class BooksController < ApplicationController
 	private
 
 	def book_params
-	  params.require(:book).permit(:title, :description, :img_url, :points)
+	  params.require(:book).permit(:title, :author, :description, :img_url, :points)
 	end
 end

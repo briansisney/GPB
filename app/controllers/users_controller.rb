@@ -11,6 +11,15 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+  def edit
+    @user = current_user 
+  end
+  
+  def update
+    @user = current_user 
+    @user.update(user_params)
+    redirect_to user_path(current_user.id)
+  end
 
   # def create
   #   @user = User.new(user_params)
@@ -31,6 +40,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    # params.require(:user).permit(:first_name, :last_name, :email_address)
+    params.require(:user).permit(:description)
   end
 end
