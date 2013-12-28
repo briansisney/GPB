@@ -4,17 +4,17 @@
 	</div>
 	<div class="large-9 columns">
 		<h3><%= "#{current_user[:first_name]} #{current_user[:last_name]}"%></h3>
-		<%if current_user.description %> 
+		<%if current_user.description != nil && current_user.description != ""%> 
 			<p><%= current_user.description %></p>
 	 	<%else %>
 	 		<p><%= current_user.first_name %> is lazy and hasn't added a description</p>
 	 	<% end %>
 		<h4>Points</h4>
-			<% if current_user.points.nil? %>
-				<p><%= current_user.first_name%> sucks and has no points!</p>
-			<% else %>
-				<p><%= current_user.points %></p>
-			<% end %>
+			<%if current_user.points.nil? then current_user.points = 10 end %>
+			<%= current_user.points %>
+		</br>
+		</br>
+			
 		<%= link_to "Edit Description", edit_user_path(current_user.id) %>
 	</div>
 </div>
