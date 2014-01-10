@@ -7,8 +7,7 @@
 	<img src="<%= @book.img_url %>" class = "book_img">
 	<p><%= @book.description %></p>
 
-
-	<%= link_to 'Checkout', @book, method: :delete, data: { confirm: 'Get it!' } %>
+	<%= button_to 'Checkout', book_path(@book), method: :delete %>
 	<%if @book.points %>
 		<h3>Points: <%= @book.points %></h3>
 	<%else%>
