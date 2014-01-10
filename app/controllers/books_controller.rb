@@ -40,11 +40,14 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
-		
 	  @book = Book.find(params[:id])
-	  current_user.points = current_user.points - @book.points 
+	  user_points= current_user.points
+	  user_points= 0 if user_points.nil? 
+	  user_points = user_points - @book.points 
 	  @book.destroy
-	  redirect_to root_path
+	  current_user.points = user_points
+	  current_user.save
+	  redirect_to landing_path
 	end
 
 	private
