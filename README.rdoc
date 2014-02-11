@@ -1,28 +1,11 @@
-== README
+==Get Paper Back
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is our first Hackathon project. 
 
-Things you may want to cover:
+Get Paper Back allows users to trade books. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Inside GPB we used the following technologies:
+* Rails 4.02
+* Sqlite3 Database
+* Zurb Foundation Framework
+* Facebook login
